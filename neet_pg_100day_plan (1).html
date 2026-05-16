@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>NEET PG — 100 Day Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F4EF;
+    --surface: #FFFFFF;
+    --surface2: #F0EDE7;
+    --border: #E0DBD3;
+    --text: #1A1714;
+    --text2: #6B6560;
+    --text3: #A09A93;
+    --purple: #5B4FCF;
+    --purple-bg: #EFEDFB;
+    --teal: #0F8A6A;
+    --teal-bg: #E0F5EE;
+    --amber: #B06A10;
+    --amber-bg: #FDF0DC;
+    --coral: #C43D2A;
+    --coral-bg: #FAEBE8;
+    --blue: #1A5FA8;
+    --blue-bg: #E5EFF9;
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html { font-size: 16px; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: 3rem;
+  }
+
+  /* HEADER */
+  .hero {
+    background: var(--text);
+    color: var(--bg);
+    padding: 2.5rem 1.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    border: 40px solid rgba(255,255,255,0.05);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: 40px; bottom: -40px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    border: 25px solid rgba(255,255,255,0.04);
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 8px;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    max-width: 480px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+  }
+  .stat { }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.75rem;
+    line-height: 1;
+    color: #fff;
+  }
+  .stat-lbl {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 2px;
+  }
+
+  /* CONTAINER */
+  .container { max-width: 900px; margin: 0 auto; padding: 1.5rem 1rem; }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin: 2rem 0 0.75rem;
+  }
+
+  /* SUBJECT WEIGHTAGE */
+  .subject-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 8px;
+  }
+  .subject-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+  }
+  .subject-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+  .subject-q { font-size: 11px; color: var(--text2); }
+  .subject-bar { height: 3px; background: var(--surface2); border-radius: 2px; margin-top: 8px; overflow: hidden; }
+  .subject-fill { height: 100%; border-radius: 2px; }
+
+  /* TIMELINE BAR */
+  .timeline-bar {
+    display: flex;
+    height: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    gap: 2px;
+    margin-bottom: 0.75rem;
+  }
+  .timeline-seg { flex: 1; border-radius: 4px; }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .leg-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text2); }
+  .leg-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+
+  /* PHASE TABS */
+  .phase-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 1.25rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .phase-tabs::-webkit-scrollbar { display: none; }
+  .phase-tab {
+    padding: 8px 16px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    background: var(--surface);
+    color: var(--text2);
+    transition: all 0.2s;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .phase-tab.active-1 { background: var(--purple); color: #fff; border-color: var(--purple); }
+  .phase-tab.active-2 { background: var(--teal); color: #fff; border-color: var(--teal); }
+  .phase-tab.active-3 { background: var(--amber); color: #fff; border-color: var(--amber); }
+  .phase-tab.active-4 { background: var(--coral); color: #fff; border-color: var(--coral); }
+
+  /* PHASE HEADER */
+  .phase-header {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .phase-header-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem;
+    margin-bottom: 4px;
+  }
+  .phase-header-sub { font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 10px; }
+  .badge-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  .badge-purple { background: var(--purple-bg); color: var(--purple); }
+  .badge-teal { background: var(--teal-bg); color: var(--teal); }
+  .badge-amber { background: var(--amber-bg); color: var(--amber); }
+  .badge-coral { background: var(--coral-bg); color: var(--coral); }
+  .badge-blue { background: var(--blue-bg); color: var(--blue); }
+
+  /* TIP BOX */
+  .tip-box {
+    background: var(--blue-bg);
+    border-left: 3px solid var(--blue);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: var(--blue);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  .tip-box strong { font-weight: 600; }
+
+  /* WEEK LABEL */
+  .week-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text2);
+    margin: 1.5rem 0 0.5rem;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* DAY CARDS */
+  .day-grid { display: flex; flex-direction: column; gap: 8px; }
+  .day-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .day-header {
+    padding: 13px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .day-header:active { background: var(--surface2); }
+  .day-label { font-size: 14px; font-weight: 600; }
+  .day-right { display: flex; align-items: center; gap: 8px; }
+  .day-tag {
+    font-size: 11px;
+    color: var(--text3);
+    max-width: 140px;
+    text-align: right;
+    line-height: 1.3;
+  }
+  .chevron {
+    width: 20px; height: 20px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text3);
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+  }
+  .chevron svg { width: 14px; height: 14px; }
+  .day-card.open .chevron { transform: rotate(180deg); }
+
+  .day-body {
+    display: none;
+    border-top: 1px solid var(--border);
+    padding: 12px 16px 16px;
+  }
+  .day-card.open .day-body { display: block; }
+
+  /* TIMELINE SLOTS */
+  .slot-list { display: flex; flex-direction: column; gap: 5px; }
+  .slot { display: flex; gap: 10px; align-items: flex-start; }
+  .slot-time {
+    font-size: 11px;
+    color: var(--text3);
+    min-width: 64px;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+  .slot-pill {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  .pill-study { background: var(--purple-bg); color: var(--purple); }
+  .pill-break { background: var(--surface2); color: var(--text2); }
+  .pill-meal { background: var(--teal-bg); color: var(--teal); }
+  .pill-sleep { background: var(--blue-bg); color: var(--blue); }
+  .pill-revision { background: var(--amber-bg); color: var(--amber); }
+  .pill-mock { background: var(--coral-bg); color: var(--coral); }
+
+  /* COLOR INDICATOR LINE on open cards */
+  .day-card.open { border-left: 3px solid; }
+  .phase-1 .day-card.open { border-left-color: var(--purple); }
+  .phase-2 .day-card.open { border-left-color: var(--teal); }
+  .phase-3 .day-card.open { border-left-color: var(--amber); }
+  .phase-4 .day-card.open { border-left-color: var(--coral); }
+
+  /* SLOT LEGEND */
+  .slot-legend {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  .sl-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text2); }
+  .sl-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  /* PROGRESS INDICATOR */
+  .progress-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .progress-bar-wrap { flex: 1; height: 6px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 4px; background: var(--purple); }
+  .progress-label { font-size: 12px; color: var(--text2); white-space: nowrap; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text3);
+    margin-top: 3rem;
+    padding: 0 1rem;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 2rem 1rem 1.75rem; }
+    .hero h1 { font-size: 1.75rem; }
+    .subject-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+    .day-tag { max-width: 100px; font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">NEET PG · Zero to Hero</div>
+  <h1>100-Day<br>Study Plan</h1>
+  <p class="hero-sub">AIR ~4000 · Target 650/800 · 19 subjects · Burn-out-proof schedule with 7hrs sleep &amp; 3 meals daily.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">100</div><div class="stat-lbl">Days</div></div>
+    <div class="stat"><div class="stat-num">19</div><div class="stat-lbl">Subjects</div></div>
+    <div class="stat"><div class="stat-num">650+</div><div class="stat-lbl">Target marks</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-lbl">Phases</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- SUBJECT WEIGHTAGE -->
+  <div class="section-label">Subject weightage (approx. questions out of 200)</div>
+  <div class="subject-grid" id="subjectGrid"></div>
+
+  <!-- TIMELINE -->
+  <div class="section-label" style="margin-top:2rem">100-day overview</div>
+  <div class="timeline-bar">
+    <div class="timeline-seg" style="flex:35;background:#5B4FCF"></div>
+    <div class="timeline-seg" style="flex:30;background:#0F8A6A"></div>
+    <div class="timeline-seg" style="flex:20;background:#B06A10"></div>
+    <div class="timeline-seg" style="flex:15;background:#C43D2A"></div>
+  </div>
+  <div class="legend">
+    <div class="leg-item"><div class="leg-dot" style="background:#5B4FCF"></div>Phase 1: Foundation (D1–35)</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#0F8A6A"></div>Phase 2: Consolidation (D36–65)</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#B06A10"></div>Phase 3: Intensive revision (D66–85)</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#C43D2A"></div>Phase 4: Grand tests (D86–100)</div>
+  </div>
+
+  <!-- SLOT LEGEND -->
+  <div class="slot-legend">
+    <div class="sl-item"><div class="sl-dot" style="background:#5B4FCF"></div>Study</div>
+    <div class="sl-item"><div class="sl-dot" style="background:#0F8A6A"></div>Meal</div>
+    <div class="sl-item"><div class="sl-dot" style="background:#B06A10"></div>Revision/MCQs</div>
+    <div class="sl-item"><div class="sl-dot" style="background:#C43D2A"></div>Mock test</div>
+    <div class="sl-item"><div class="sl-dot" style="background:#1A5FA8"></div>Sleep</div>
+    <div class="sl-item"><div class="sl-dot" style="background:#A09A93"></div>Break</div>
+  </div>
+
+  <!-- PHASE TABS -->
+  <div class="phase-tabs" id="phaseTabs"></div>
+
+  <!-- PHASE CONTENT -->
+  <div id="phaseContent"></div>
+
+  <div class="footer">
+    <p>Made for NEET PG aspirants. Adjust timings as per your chronotype.</p>
+    <p>Consistency &gt; Intensity. One day at a time.</p>
+  </div>
+
+</div>
+
+<script>
+const subjects = [
+  { name: "Medicine", q: 18, color: "#5B4FCF" },
+  { name: "Surgery", q: 14, color: "#0F8A6A" },
+  { name: "OBG", q: 12, color: "#C43D2A" },
+  { name: "Anatomy", q: 10, color: "#B06A10" },
+  { name: "Physiology", q: 9, color: "#1A5FA8" },
+  { name: "Biochemistry", q: 8, color: "#D4537E" },
+  { name: "Pharmacology", q: 10, color: "#3A8C3F" },
+  { name: "Pathology", q: 11, color: "#E24B4A" },
+  { name: "Microbiology", q: 9, color: "#7A6F66" },
+  { name: "Paediatrics", q: 10, color: "#0F8A6A" },
+  { name: "PSM/SPM", q: 10, color: "#1A5FA8" },
+  { name: "Radiology", q: 5, color: "#8B4FA8" },
+  { name: "Orthopaedics", q: 7, color: "#5B4FCF" },
+  { name: "Ophthalmology", q: 7, color: "#2A8C7A" },
+  { name: "ENT", q: 7, color: "#B06A10" },
+  { name: "Dermatology", q: 5, color: "#3A8C3F" },
+  { name: "Psychiatry", q: 5, color: "#D4537E" },
+  { name: "Anaesthesia", q: 4, color: "#7A6F66" },
+  { name: "FMT", q: 3, color: "#A09A93" },
+];
+const maxQ = Math.max(...subjects.map(s=>s.q));
+const sg = document.getElementById('subjectGrid');
+subjects.forEach(s => {
+  const pct = Math.round(s.q/maxQ*100);
+  sg.innerHTML += `<div class="subject-card">
+    <div class="subject-name">${s.name}</div>
+    <div class="subject-q">~${s.q} questions</div>
+    <div class="subject-bar"><div class="subject-fill" style="width:${pct}%;background:${s.color}"></div></div>
+  </div>`;
+});
+
+const phases = [
+  {
+    id:1, label:"Phase 1", sub:"Foundation", days:"Day 1–35", color:"#5B4FCF",
+    desc:"Build conceptual base across all 7 basic sciences. Sessions capped at 1.5 hrs with mandatory 15-min breaks. No mock tests — only subject MCQs after each topic.",
+    badges:[{t:"1–1.5 hr sessions",c:"badge-purple"},{t:"7 basic sciences",c:"badge-teal"},{t:"Daily 50 MCQs",c:"badge-blue"},{t:"Sunday revision",c:"badge-amber"}],
+    tip:"Read Mudit Khanna / Across + make 1-page notes. Do subject MCQs from Prepladder/Marrow after each topic. Sunday = full revision of week's topics + 50-Q subject test.",
+    weeks:[
+      {label:"Week 1 (D1–7): Anatomy + Physiology",days:[
+        {label:"Day 1 (Mon)",tag:"Anatomy — upper limb",slots:[
+          {t:"5:30 AM",l:"Wake up + freshen",c:"pill-break"},
+          {t:"6:00 AM",l:"Breakfast + morning walk",c:"pill-meal"},
+          {t:"7:00 AM",l:"Anatomy – Upper limb: brachial plexus, muscles, axilla",c:"pill-study"},
+          {t:"8:30 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"8:45 AM",l:"Anatomy – Upper limb MCQs (30 Qs)",c:"pill-revision"},
+          {t:"10:00 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"10:15 AM",l:"Physiology – Nerve & muscle (NMJ, action potential, reflexes)",c:"pill-study"},
+          {t:"11:45 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"12:00 PM",l:"Lunch + rest",c:"pill-meal"},
+          {t:"1:00 PM",l:"Anatomy – Lower limb: lumbosacral plexus, compartments",c:"pill-study"},
+          {t:"2:30 PM",l:"Break (15 min)",c:"pill-break"},
+          {t:"2:45 PM",l:"Physiology – Blood: haematopoiesis, RBC indices, coagulation",c:"pill-study"},
+          {t:"4:15 PM",l:"Break + snack (30 min)",c:"pill-break"},
+          {t:"4:45 PM",l:"Lower limb MCQs (20 Qs)",c:"pill-revision"},
+          {t:"5:30 PM",l:"Dinner + relax",c:"pill-meal"},
+          {t:"6:30 PM",l:"Quick notes review (both subjects)",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep (7 hours)",c:"pill-sleep"},
+        ]},
+        {label:"Day 2 (Tue)",tag:"Anatomy — head, neck, thorax",slots:[
+          {t:"5:30 AM",l:"Wake up",c:"pill-break"},
+          {t:"6:00 AM",l:"Breakfast",c:"pill-meal"},
+          {t:"7:00 AM",l:"Anatomy – Head & neck: cranial nerves, triangles, thyroid",c:"pill-study"},
+          {t:"8:30 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"8:45 AM",l:"Anatomy – Thorax: mediastinum, heart anatomy, pericardium",c:"pill-study"},
+          {t:"10:15 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"10:30 AM",l:"Physiology – CVS: cardiac cycle, output, Frank-Starling, ECG",c:"pill-study"},
+          {t:"12:00 PM",l:"Lunch + rest",c:"pill-meal"},
+          {t:"1:00 PM",l:"Anatomy – Abdomen: peritoneum, portosystemic, bowel, inguinal canal",c:"pill-study"},
+          {t:"2:30 PM",l:"Break (15 min)",c:"pill-break"},
+          {t:"2:45 PM",l:"MCQs – Head+Neck+Thorax Anatomy (30 Qs)",c:"pill-revision"},
+          {t:"4:00 PM",l:"Break + snack (30 min)",c:"pill-break"},
+          {t:"4:30 PM",l:"Physiology – CVS MCQs (20 Qs)",c:"pill-revision"},
+          {t:"6:00 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:00 PM",l:"Notes review",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 3–6 (Wed–Sat)",tag:"Anatomy + Physiology cont.",slots:[
+          {t:"7:00 AM",l:"Anatomy – Embryology: limb, heart, gut, neural tube (high-yield)",c:"pill-study"},
+          {t:"8:30 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"8:45 AM",l:"Physiology – Respiratory: spirometry, V/Q ratio, control of breathing",c:"pill-study"},
+          {t:"10:15 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"10:30 AM",l:"Anatomy – Neuroanatomy: tracts, internal capsule, cerebellum, brainstem",c:"pill-study"},
+          {t:"12:00 PM",l:"Lunch + rest",c:"pill-meal"},
+          {t:"1:00 PM",l:"Physiology – Renal: GFR, tubular functions, acid-base, concentration",c:"pill-study"},
+          {t:"2:30 PM",l:"Break (15 min)",c:"pill-break"},
+          {t:"2:45 PM",l:"MCQs – Mixed Anatomy + Physiology (40 Qs)",c:"pill-revision"},
+          {t:"4:00 PM",l:"Break + snack (30 min)",c:"pill-break"},
+          {t:"4:30 PM",l:"Physiology – Endocrine: thyroid, adrenal, GH, insulin, calcium",c:"pill-study"},
+          {t:"6:00 PM",l:"Dinner + relax",c:"pill-meal"},
+          {t:"7:00 PM",l:"Notes / mnemonics",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 7 (Sun)",tag:"Weekly revision day",slots:[
+          {t:"7:00 AM",l:"Light wake-up, good breakfast",c:"pill-meal"},
+          {t:"8:00 AM",l:"Anatomy full week revision – notes + important tables",c:"pill-revision"},
+          {t:"9:30 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"9:45 AM",l:"Physiology full week revision",c:"pill-revision"},
+          {t:"11:15 AM",l:"Break (30 min)",c:"pill-break"},
+          {t:"11:45 AM",l:"50-Q subject test: Anatomy + Physiology (timed)",c:"pill-mock"},
+          {t:"1:00 PM",l:"Lunch + rest (1.5 hrs)",c:"pill-meal"},
+          {t:"2:30 PM",l:"Error analysis + weak topic re-read",c:"pill-revision"},
+          {t:"4:00 PM",l:"Completely free — walk, family, hobbies",c:"pill-break"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+      ]},
+      {label:"Week 2 (D8–14): Biochemistry + Microbiology",days:[
+        {label:"Day 8–10 (Mon–Wed)",tag:"Biochemistry",slots:[
+          {t:"7:00 AM",l:"Biochemistry – Carbohydrate metabolism: glycolysis, TCA, glycogen storage",c:"pill-study"},
+          {t:"8:30 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"8:45 AM",l:"Biochemistry – Lipid metabolism: FA oxidation, ketones, cholesterol, lipoproteins",c:"pill-study"},
+          {t:"10:15 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"10:30 AM",l:"MCQs – Carb + Lipid metabolism (30 Qs)",c:"pill-revision"},
+          {t:"12:00 PM",l:"Lunch + rest",c:"pill-meal"},
+          {t:"1:00 PM",l:"Biochemistry – Proteins, enzymes, molecular biology (PCR, mutations, oncogenes)",c:"pill-study"},
+          {t:"2:30 PM",l:"Break (15 min)",c:"pill-break"},
+          {t:"2:45 PM",l:"Biochemistry – Vitamins (all fat + water soluble) + minerals",c:"pill-study"},
+          {t:"4:00 PM",l:"Snack break (30 min)",c:"pill-break"},
+          {t:"4:30 PM",l:"MCQs – Vitamins + enzymes (25 Qs)",c:"pill-revision"},
+          {t:"6:00 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:00 PM",l:"Notes review",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 11–13 (Thu–Sat)",tag:"Microbiology",slots:[
+          {t:"7:00 AM",l:"Microbiology – Bacteriology: gram +ve and –ve high-yield organisms",c:"pill-study"},
+          {t:"8:30 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"8:45 AM",l:"Microbiology – Virology: DNA/RNA viruses, hepatitis types, HIV, HPV",c:"pill-study"},
+          {t:"10:15 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"10:30 AM",l:"MCQs – Bacteriology (25 Qs)",c:"pill-revision"},
+          {t:"12:00 PM",l:"Lunch",c:"pill-meal"},
+          {t:"1:00 PM",l:"Microbiology – Parasitology: malaria, amoeba, worms, leishmania, toxoplasma",c:"pill-study"},
+          {t:"2:30 PM",l:"Break (15 min)",c:"pill-break"},
+          {t:"2:45 PM",l:"Microbiology – Mycology + immunology basics (complement, hypersensitivity)",c:"pill-study"},
+          {t:"4:00 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"4:30 PM",l:"MCQs – Virology + Parasitology (30 Qs)",c:"pill-revision"},
+          {t:"6:00 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:00 PM",l:"Notes + mnemonics",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 14 (Sun)",tag:"Weekly revision",slots:[
+          {t:"7:00 AM",l:"Breakfast",c:"pill-meal"},
+          {t:"8:00 AM",l:"Biochemistry full revision (all topics, focus on enzymes + vitamins)",c:"pill-revision"},
+          {t:"9:30 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"9:45 AM",l:"Microbiology full revision",c:"pill-revision"},
+          {t:"11:15 AM",l:"Break (30 min)",c:"pill-break"},
+          {t:"11:45 AM",l:"50-Q subject test: Biochem + Micro",c:"pill-mock"},
+          {t:"1:00 PM",l:"Lunch + rest",c:"pill-meal"},
+          {t:"2:30 PM",l:"Error analysis + weak topics",c:"pill-revision"},
+          {t:"4:00 PM",l:"Free time",c:"pill-break"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+      ]},
+      {label:"Week 3 (D15–21): Pathology",days:[
+        {label:"Day 15–17",tag:"General pathology",slots:[
+          {t:"7:00 AM",l:"Pathology – Cell injury, necrosis, apoptosis (reversible vs irreversible)",c:"pill-study"},
+          {t:"8:30 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"8:45 AM",l:"Pathology – Inflammation: acute, chronic, granuloma types",c:"pill-study"},
+          {t:"10:15 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"10:30 AM",l:"MCQs – Cell injury + Inflammation (30 Qs)",c:"pill-revision"},
+          {t:"12:00 PM",l:"Lunch",c:"pill-meal"},
+          {t:"1:00 PM",l:"Pathology – Neoplasia: carcinogenesis, tumour markers, grading vs staging",c:"pill-study"},
+          {t:"2:30 PM",l:"Break (15 min)",c:"pill-break"},
+          {t:"2:45 PM",l:"Pathology – Haematology: anaemia types, leukaemias, lymphoma classification",c:"pill-study"},
+          {t:"4:00 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"4:30 PM",l:"MCQs – Neoplasia + Haematology (30 Qs)",c:"pill-revision"},
+          {t:"6:00 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:00 PM",l:"Notes",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 18–20",tag:"Systemic pathology",slots:[
+          {t:"7:00 AM",l:"Pathology – CVS: IHD zones, cardiomyopathies, rheumatic heart disease",c:"pill-study"},
+          {t:"8:30 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"8:45 AM",l:"Pathology – Respiratory: pneumonia types, TB patterns, lung tumours",c:"pill-study"},
+          {t:"10:15 AM",l:"Break (15 min)",c:"pill-break"},
+          {t:"10:30 AM",l:"Pathology – GIT + Liver: hepatitis, cirrhosis, IBD, polyps, Ca colon",c:"pill-study"},
+          {t:"12:00 PM",l:"Lunch",c:"pill-meal"},
+          {t:"1:00 PM",l:"Pathology – Kidney: nephritic vs nephrotic syndromes, GN types",c:"pill-study"},
+          {t:"2:30 PM",l:"Break (15 min)",c:"pill-break"},
+          {t:"2:45 PM",l:"MCQs – All systemic Pathology (40 Qs)",c:"pill-revision"},
+          {t:"4:00 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"4:30 PM",l:"Pathology – Female genital + breast: Ca cervix, FNAC patterns",c:"pill-study"},
+          {t:"6:00 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:00 PM",l:"Notes",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 21 (Sun)",tag:"Pathology revision",slots:[
+          {t:"7:00 AM",l:"Breakfast",c:"pill-meal"},
+          {t:"8:00 AM",l:"Pathology full revision (general + all systems)",c:"pill-revision"},
+          {t:"10:00 AM",l:"Break (30 min)",c:"pill-break"},
+          {t:"10:30 AM",l:"50-Q Pathology test",c:"pill-mock"},
+          {t:"12:00 PM",l:"Lunch + rest",c:"pill-meal"},
+          {t:"1:30 PM",l:"Error analysis",c:"pill-revision"},
+          {t:"3:00 PM",l:"Free time",c:"pill-break"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+      ]},
+      {label:"Week 4–5 (D22–35): Pharmacology + PSM",days:[
+        {label:"Day 22–26: Pharmacology",tag:"General + systemic drugs",slots:[
+          {t:"7:00 AM",l:"Pharmacology – General: PK, PD, drug interactions, adverse effects, TI",c:"pill-study"},
+          {t:"8:30 AM",l:"Break",c:"pill-break"},
+          {t:"8:45 AM",l:"Pharmacology – ANS: sympathomimetics, beta-blockers, anticholinergics, organophosphates",c:"pill-study"},
+          {t:"10:15 AM",l:"Break",c:"pill-break"},
+          {t:"10:30 AM",l:"MCQs – General Pharma + ANS (30 Qs)",c:"pill-revision"},
+          {t:"12:00 PM",l:"Lunch",c:"pill-meal"},
+          {t:"1:00 PM",l:"Pharmacology – CVS drugs: antihypertensives, antiarrhythmics, diuretics, anticoagulants",c:"pill-study"},
+          {t:"2:30 PM",l:"Break",c:"pill-break"},
+          {t:"2:45 PM",l:"Pharmacology – Antibiotics: all classes, MOA, resistance, coverage",c:"pill-study"},
+          {t:"4:00 PM",l:"Break + snack",c:"pill-break"},
+          {t:"4:30 PM",l:"Pharmacology – CNS: antiepileptics, antipsychotics, antidepressants, anaesthetics",c:"pill-study"},
+          {t:"6:00 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:00 PM",l:"Notes + MCQs (20 Qs)",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 27–33: PSM/SPM",tag:"Epidemiology + National programs",slots:[
+          {t:"7:00 AM",l:"PSM – Epidemiology: study designs, bias, screening criteria, sensitivity/specificity",c:"pill-study"},
+          {t:"8:30 AM",l:"Break",c:"pill-break"},
+          {t:"8:45 AM",l:"PSM – Biostatistics: mean/median/mode, SD, p-value, NNT, confidence intervals",c:"pill-study"},
+          {t:"10:15 AM",l:"Break",c:"pill-break"},
+          {t:"10:30 AM",l:"PSM – National health programs: immunisation schedule, RNTCP, NCD programs",c:"pill-study"},
+          {t:"12:00 PM",l:"Lunch",c:"pill-meal"},
+          {t:"1:00 PM",l:"PSM – MCH, nutrition (SAM/MAM), family planning, health indicators",c:"pill-study"},
+          {t:"2:30 PM",l:"Break",c:"pill-break"},
+          {t:"2:45 PM",l:"MCQs – PSM (40 Qs)",c:"pill-revision"},
+          {t:"4:00 PM",l:"Break",c:"pill-break"},
+          {t:"4:30 PM",l:"PSM – Environment health, occupational diseases, water purification",c:"pill-study"},
+          {t:"6:00 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:00 PM",l:"Notes",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 34–35: Phase 1 Grand Revision",tag:"All basic sciences",slots:[
+          {t:"7:00 AM",l:"Breakfast",c:"pill-meal"},
+          {t:"8:00 AM",l:"Speed revision – Anatomy + Physiology (tables, mnemonics, important values)",c:"pill-revision"},
+          {t:"9:30 AM",l:"Break",c:"pill-break"},
+          {t:"9:45 AM",l:"Speed revision – Biochemistry + Microbiology",c:"pill-revision"},
+          {t:"11:15 AM",l:"Break (30 min)",c:"pill-break"},
+          {t:"11:45 AM",l:"Speed revision – Pathology + Pharmacology + PSM",c:"pill-revision"},
+          {t:"1:00 PM",l:"Lunch + long rest",c:"pill-meal"},
+          {t:"2:30 PM",l:"100-Q Phase 1 Grand Mock Test (timed 1.5 hrs)",c:"pill-mock"},
+          {t:"5:00 PM",l:"Error analysis",c:"pill-revision"},
+          {t:"6:30 PM",l:"Dinner + free time",c:"pill-meal"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+      ]},
+    ]
+  },
+  {
+    id:2, label:"Phase 2", sub:"Consolidation", days:"Day 36–65", color:"#0F8A6A",
+    desc:"Clinical subjects: Medicine, Surgery, OBG, Paediatrics, Orthopaedics. Sessions grow to 2 hrs. Daily 100-Q tests. Weekly 200-Q grand mocks.",
+    badges:[{t:"2 hr sessions",c:"badge-teal"},{t:"5 clinical subjects",c:"badge-purple"},{t:"100 MCQs/day",c:"badge-blue"},{t:"Weekly grand test",c:"badge-coral"}],
+    tip:"Use clinical approach. For Medicine: CVS→RS→GIT→Endocrine→Neuro→Rheum→ID. Correlate with Pathology + Pharmacology already studied. Surgery: principles first, then system-wise. Saturday = 200-Q full mock. Sunday = error analysis only.",
+    weeks:[
+      {label:"Week 6 (D36–42): Medicine",days:[
+        {label:"Day 36–38: Medicine CVS + RS",tag:"Cardiology + Pulmonology",slots:[
+          {t:"6:30 AM",l:"Wake + breakfast",c:"pill-meal"},
+          {t:"7:30 AM",l:"Medicine – CVS: IHD (ACS management), CCF, valvular disease, hypertension",c:"pill-study"},
+          {t:"9:30 AM",l:"Break (20 min)",c:"pill-break"},
+          {t:"9:50 AM",l:"Medicine – Respiratory: COPD, asthma, ILD, pneumonia, pleural effusion",c:"pill-study"},
+          {t:"11:50 AM",l:"Break (20 min)",c:"pill-break"},
+          {t:"12:10 PM",l:"Lunch",c:"pill-meal"},
+          {t:"1:10 PM",l:"MCQs – CVS + RS Medicine (50 Qs)",c:"pill-revision"},
+          {t:"2:30 PM",l:"Break (20 min)",c:"pill-break"},
+          {t:"2:50 PM",l:"Medicine – GIT: liver disease, viral hepatitis, IBD, Ca GIT, pancreatitis",c:"pill-study"},
+          {t:"4:50 PM",l:"Break + snack (30 min)",c:"pill-break"},
+          {t:"5:20 PM",l:"MCQs – GIT Medicine (30 Qs)",c:"pill-revision"},
+          {t:"6:00 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:00 PM",l:"Notes revision",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 39–41: Medicine Endocrine + Neuro + Rheum",tag:"Medicine systems",slots:[
+          {t:"7:30 AM",l:"Medicine – Endocrine: DM types, thyroid disorders, adrenal, pituitary, MEN",c:"pill-study"},
+          {t:"9:30 AM",l:"Break (20 min)",c:"pill-break"},
+          {t:"9:50 AM",l:"Medicine – Neurology: stroke, meningitis, epilepsy, Parkinson's, movement disorders",c:"pill-study"},
+          {t:"11:50 AM",l:"Break (20 min)",c:"pill-break"},
+          {t:"12:10 PM",l:"Lunch",c:"pill-meal"},
+          {t:"1:10 PM",l:"MCQs – Endocrine + Neurology (50 Qs)",c:"pill-revision"},
+          {t:"2:30 PM",l:"Break (20 min)",c:"pill-break"},
+          {t:"2:50 PM",l:"Medicine – Rheumatology, Infectious diseases, Haematology (ITP, TTP, DIC)",c:"pill-study"},
+          {t:"4:50 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"5:20 PM",l:"MCQs – Rheum + ID (30 Qs)",c:"pill-revision"},
+          {t:"6:00 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:00 PM",l:"Notes",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 42 (Sun): Medicine grand test",tag:"Revision + mock",slots:[
+          {t:"7:30 AM",l:"Breakfast",c:"pill-meal"},
+          {t:"8:30 AM",l:"Medicine full revision (all systems — notes only)",c:"pill-revision"},
+          {t:"10:30 AM",l:"Break (30 min)",c:"pill-break"},
+          {t:"11:00 AM",l:"200-Q grand mock test (Medicine heavy)",c:"pill-mock"},
+          {t:"2:00 PM",l:"Lunch + rest",c:"pill-meal"},
+          {t:"3:30 PM",l:"Error analysis",c:"pill-revision"},
+          {t:"5:30 PM",l:"Free time",c:"pill-break"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+      ]},
+      {label:"Week 7–8 (D43–56): Surgery + OBG",days:[
+        {label:"Day 43–49: Surgery",tag:"General + systemic surgery",slots:[
+          {t:"7:30 AM",l:"Surgery – General principles: wound healing, shock types, fluid management, burns",c:"pill-study"},
+          {t:"9:30 AM",l:"Break (20 min)",c:"pill-break"},
+          {t:"9:50 AM",l:"Surgery – GIT surgery: appendix, hernia types, intestinal obstruction, Ca colon staging",c:"pill-study"},
+          {t:"11:50 AM",l:"Break (20 min)",c:"pill-break"},
+          {t:"12:10 PM",l:"Lunch",c:"pill-meal"},
+          {t:"1:10 PM",l:"MCQs – Surgery general + GIT (50 Qs)",c:"pill-revision"},
+          {t:"2:30 PM",l:"Break (20 min)",c:"pill-break"},
+          {t:"2:50 PM",l:"Surgery – Thyroid surgery, breast (FNAC, Ca breast staging), hepatobiliary",c:"pill-study"},
+          {t:"4:50 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"5:20 PM",l:"Surgery – Urology: BPH, Ca prostate, renal calculi, renal trauma",c:"pill-study"},
+          {t:"6:30 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:30 PM",l:"MCQs + notes (20 Qs)",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 50–56: OBG",tag:"Obstetrics + Gynaecology",slots:[
+          {t:"7:30 AM",l:"OBG – Normal labour, partogram, Bishop score, induction of labour",c:"pill-study"},
+          {t:"9:30 AM",l:"Break (20 min)",c:"pill-break"},
+          {t:"9:50 AM",l:"OBG – High-risk pregnancy: PIH, APH (placenta previa, abruption), PPH, IUGR",c:"pill-study"},
+          {t:"11:50 AM",l:"Break (20 min)",c:"pill-break"},
+          {t:"12:10 PM",l:"Lunch",c:"pill-meal"},
+          {t:"1:10 PM",l:"MCQs – Obstetrics (50 Qs)",c:"pill-revision"},
+          {t:"2:30 PM",l:"Break (20 min)",c:"pill-break"},
+          {t:"2:50 PM",l:"OBG – Gynaecology: PCOS, fibroid, Ca cervix/endometrium, contraception methods",c:"pill-study"},
+          {t:"4:50 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"5:20 PM",l:"OBG – Infertility, ART, menopause, vulvar lesions, TOC in pregnancy",c:"pill-study"},
+          {t:"6:30 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:30 PM",l:"MCQs + notes",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+      ]},
+      {label:"Week 9–10 (D57–65): Paediatrics + Orthopaedics",days:[
+        {label:"Day 57–61: Paediatrics",tag:"Growth, neonatology, infections",slots:[
+          {t:"7:30 AM",l:"Paediatrics – Growth charts, developmental milestones, immunisation schedule",c:"pill-study"},
+          {t:"9:30 AM",l:"Break (20 min)",c:"pill-break"},
+          {t:"9:50 AM",l:"Paediatrics – Neonatology: NNJ, respiratory distress syndrome, NEC, IUGR",c:"pill-study"},
+          {t:"11:50 AM",l:"Break (20 min)",c:"pill-break"},
+          {t:"12:10 PM",l:"Lunch",c:"pill-meal"},
+          {t:"1:10 PM",l:"Paediatrics – Infections: fever without focus, meningitis, viral exanthems, PUO",c:"pill-study"},
+          {t:"2:30 PM",l:"Break (20 min)",c:"pill-break"},
+          {t:"2:50 PM",l:"Paediatrics – Nutrition (SAM/MAM), ORS, respiratory (bronchiolitis, wheeze)",c:"pill-study"},
+          {t:"4:50 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"5:20 PM",l:"MCQs – Paediatrics (50 Qs)",c:"pill-revision"},
+          {t:"6:30 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:30 PM",l:"Notes",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 62–65: Ortho + Phase 2 Revision",tag:"Ortho + grand revision",slots:[
+          {t:"7:30 AM",l:"Orthopaedics – Fractures: principles, Colles, neck of femur, spinal injuries",c:"pill-study"},
+          {t:"9:30 AM",l:"Break (20 min)",c:"pill-break"},
+          {t:"9:50 AM",l:"Orthopaedics – Infections: osteomyelitis, septic arthritis, TB spine (Pott's)",c:"pill-study"},
+          {t:"11:50 AM",l:"Break (20 min)",c:"pill-break"},
+          {t:"12:10 PM",l:"Lunch",c:"pill-meal"},
+          {t:"1:10 PM",l:"Orthopaedics – Tumours, congenital anomalies (CDH, CTEV, LCPD), RTA management",c:"pill-study"},
+          {t:"2:30 PM",l:"Break (20 min)",c:"pill-break"},
+          {t:"2:50 PM",l:"Phase 2 Grand Revision – Medicine + Surgery speed notes",c:"pill-revision"},
+          {t:"4:50 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"5:20 PM",l:"Phase 2 Grand Revision – OBG + Paeds + Ortho",c:"pill-revision"},
+          {t:"6:30 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:30 PM",l:"300-Q Cumulative Mock Test",c:"pill-mock"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+      ]},
+    ]
+  },
+  {
+    id:3, label:"Phase 3", sub:"Intensive revision", days:"Day 66–85", color:"#B06A10",
+    desc:"Specialty subjects sprint + full integration revision. Sessions now 2.5–3 hrs. 150-Q daily timed tests. Focus on high-yield topics and previous year questions.",
+    badges:[{t:"3 hr sessions",c:"badge-amber"},{t:"7 specialty subjects",c:"badge-purple"},{t:"150 MCQs/day",c:"badge-teal"},{t:"PYQ focus",c:"badge-coral"}],
+    tip:"Ophthalmology, ENT, Dermatology, Psychiatry, Radiology, Anaesthesia, FMT yield ~36 Qs. Spend 2 days each. Then 6 days of full subject integration revision. Daily 150-Q timed tests are mandatory. Identify your weakest Phase 1&2 subjects and allocate extra revision time.",
+    weeks:[
+      {label:"Week 10–11 (D66–75): Specialties sprint",days:[
+        {label:"Day 66–67: Ophthalmology",tag:"Eye high-yield",slots:[
+          {t:"6:30 AM",l:"Wake + breakfast",c:"pill-meal"},
+          {t:"7:30 AM",l:"Ophthalmology – Eye anatomy, cornea, lens, aqueous humor, retinal layers",c:"pill-study"},
+          {t:"10:00 AM",l:"Break (30 min)",c:"pill-break"},
+          {t:"10:30 AM",l:"Ophthalmology – Glaucoma (open vs closed angle), cataract, retinal detachment, uveitis",c:"pill-study"},
+          {t:"1:00 PM",l:"Lunch",c:"pill-meal"},
+          {t:"2:00 PM",l:"Ophthalmology – Strabismus, colour blindness, visual field defects, OCT imaging",c:"pill-study"},
+          {t:"4:30 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"5:00 PM",l:"Ophthalmology MCQs (50 Qs)",c:"pill-revision"},
+          {t:"6:30 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:30 PM",l:"Notes + PYQ review",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 68–69: ENT",tag:"Ear, nose, throat",slots:[
+          {t:"7:30 AM",l:"ENT – Ear: ASOM, CSOM, cholesteatoma, otosclerosis, audiometry patterns",c:"pill-study"},
+          {t:"10:00 AM",l:"Break (30 min)",c:"pill-break"},
+          {t:"10:30 AM",l:"ENT – Nose + Throat: epistaxis, DNS, sinusitis, tonsils, Ca larynx/hypopharynx",c:"pill-study"},
+          {t:"1:00 PM",l:"Lunch",c:"pill-meal"},
+          {t:"2:00 PM",l:"ENT – Vertigo: Meniere's, BPPV, labyrinthitis, facial nerve palsy, hearing aids",c:"pill-study"},
+          {t:"4:30 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"5:00 PM",l:"ENT MCQs (50 Qs)",c:"pill-revision"},
+          {t:"6:30 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:30 PM",l:"Notes",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 70–71: Dermatology + Psychiatry",tag:"Derm + Psych",slots:[
+          {t:"7:30 AM",l:"Dermatology – Eczema, psoriasis, pemphigus vs bullous pemphigoid, fungal infections",c:"pill-study"},
+          {t:"10:00 AM",l:"Break (30 min)",c:"pill-break"},
+          {t:"10:30 AM",l:"Dermatology – Skin tumours, STI (syphilis, gonorrhoea), drug reactions, leprosy",c:"pill-study"},
+          {t:"1:00 PM",l:"Lunch",c:"pill-meal"},
+          {t:"2:00 PM",l:"Psychiatry – Schizophrenia, mood disorders (bipolar, MDD), anxiety disorders",c:"pill-study"},
+          {t:"4:00 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"4:30 PM",l:"Psychiatry – Dementia, delirium, substance abuse disorders, ICD-11 classifications",c:"pill-study"},
+          {t:"6:30 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:30 PM",l:"MCQs – Derm + Psych (50 Qs)",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 72–73: Radiology + Anaesthesia + FMT",tag:"Smallest subjects",slots:[
+          {t:"7:30 AM",l:"Radiology – Classic X-ray signs (all high-yield), CT/MRI basics, interventional procedures",c:"pill-study"},
+          {t:"10:00 AM",l:"Break (30 min)",c:"pill-break"},
+          {t:"10:30 AM",l:"Anaesthesia – Induction agents (propofol, thiopentone), muscle relaxants, local anaesthetics, MAC",c:"pill-study"},
+          {t:"1:00 PM",l:"Lunch",c:"pill-meal"},
+          {t:"2:00 PM",l:"FMT – Cause/manner/time of death, wound types, POCSO Act, MTP Act, consent",c:"pill-study"},
+          {t:"4:00 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"4:30 PM",l:"MCQs – Radiology + Anaesthesia + FMT (60 Qs)",c:"pill-revision"},
+          {t:"6:30 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:30 PM",l:"Notes + PYQ",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 74–75: Specialty grand test + weak area fix",tag:"All 7 specialties",slots:[
+          {t:"7:30 AM",l:"Breakfast",c:"pill-meal"},
+          {t:"8:30 AM",l:"Grand test – All specialty subjects (100 Qs timed, 1.5 hrs)",c:"pill-mock"},
+          {t:"10:00 AM",l:"Break",c:"pill-break"},
+          {t:"10:30 AM",l:"Error analysis + weak specialty topics re-read",c:"pill-revision"},
+          {t:"1:00 PM",l:"Lunch",c:"pill-meal"},
+          {t:"2:00 PM",l:"Re-study weakest specialty topic in depth",c:"pill-study"},
+          {t:"5:00 PM",l:"Break + snack",c:"pill-break"},
+          {t:"5:30 PM",l:"150-Q integrated test (basics + specialties)",c:"pill-mock"},
+          {t:"8:00 PM",l:"Dinner + rest",c:"pill-meal"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+      ]},
+      {label:"Week 12–13 (D76–85): Full integration revision",days:[
+        {label:"Day 76–79: Basic sciences rapid cycle",tag:"Anatomy → PSM in 4 days",slots:[
+          {t:"7:00 AM",l:"Breakfast",c:"pill-meal"},
+          {t:"8:00 AM",l:"Anatomy – High-yield tables only: embryology, neuroanatomy, important foramina",c:"pill-revision"},
+          {t:"10:30 AM",l:"Break (30 min)",c:"pill-break"},
+          {t:"11:00 AM",l:"Physiology – Important values: CVS + renal + endocrine (memorise numbers)",c:"pill-revision"},
+          {t:"1:00 PM",l:"Lunch",c:"pill-meal"},
+          {t:"2:00 PM",l:"Biochemistry – Enzyme deficiencies, metabolic disorders, vitamin deficiencies (last-minute facts)",c:"pill-revision"},
+          {t:"4:30 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"5:00 PM",l:"150-Q timed test (all basic sciences)",c:"pill-mock"},
+          {t:"7:30 PM",l:"Dinner",c:"pill-meal"},
+          {t:"8:30 PM",l:"Error analysis",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 80–83: Clinical subjects rapid cycle",tag:"Medicine → OBG in 4 days",slots:[
+          {t:"7:00 AM",l:"Breakfast",c:"pill-meal"},
+          {t:"8:00 AM",l:"Medicine – Drug of choice revision + important lab values (HbA1c, INR targets, CD4 counts)",c:"pill-revision"},
+          {t:"10:30 AM",l:"Break (30 min)",c:"pill-break"},
+          {t:"11:00 AM",l:"Surgery – Staging systems: Ca breast TNM, Child-Pugh score, Dukes, Glasgow coma scale",c:"pill-revision"},
+          {t:"1:00 PM",l:"Lunch",c:"pill-meal"},
+          {t:"2:00 PM",l:"OBG – Partogram landmarks, APGAR scoring, Bishop score, drugs contraindicated in pregnancy",c:"pill-revision"},
+          {t:"4:30 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"5:00 PM",l:"Paediatrics – Developmental milestones table, immunisation schedule 2024, IMNCI algorithms",c:"pill-revision"},
+          {t:"7:00 PM",l:"Dinner",c:"pill-meal"},
+          {t:"8:00 PM",l:"150-Q timed integrated test",c:"pill-mock"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 84–85: Phase 3 grand test + debrief",tag:"Full 200-Q simulation",slots:[
+          {t:"7:00 AM",l:"Light breakfast",c:"pill-meal"},
+          {t:"8:00 AM",l:"Full 200-Q Integrated Mock Test — all subjects, strict exam conditions",c:"pill-mock"},
+          {t:"11:00 AM",l:"Break + lunch",c:"pill-meal"},
+          {t:"12:30 PM",l:"Error analysis — categorise weak subjects, make target list",c:"pill-revision"},
+          {t:"3:00 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"3:30 PM",l:"Targeted re-read of 3 weakest subjects (1 hr each)",c:"pill-study"},
+          {t:"6:30 PM",l:"Dinner + rest",c:"pill-meal"},
+          {t:"7:30 PM",l:"Plan Phase 4 daily priorities",c:"pill-revision"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+      ]},
+    ]
+  },
+  {
+    id:4, label:"Phase 4", sub:"Grand tests & final polish", days:"Day 86–100", color:"#C43D2A",
+    desc:"Exam mode. Full 200-Q tests daily under timed conditions. No new topics ever. Only revision + error log. Sleep 8 hrs. Day 100 = absolute rest.",
+    badges:[{t:"200-Q daily tests",c:"badge-coral"},{t:"No new topics",c:"badge-amber"},{t:"Error log revision only",c:"badge-teal"},{t:"Day 100 = rest",c:"badge-purple"}],
+    tip:"No new topics after Day 85 — this is non-negotiable. Revise only from your personal notes + error log. Sleep 8 hrs minimum. Eat well, hydrate, walk 20 min daily. Day 99: light revision only. Day 100: no books, no tests, zero stress. Confidence is your weapon.",
+    weeks:[
+      {label:"Week 14 (D86–92): Daily exam simulation",days:[
+        {label:"Day 86–91: Mock test + error analysis",tag:"200-Q every day",slots:[
+          {t:"6:30 AM",l:"Wake + light nutritious breakfast",c:"pill-meal"},
+          {t:"7:30 AM",l:"200-Q Grand Mock Test — 3.5 hrs, exam conditions, no phone",c:"pill-mock"},
+          {t:"11:00 AM",l:"Break + lunch",c:"pill-meal"},
+          {t:"12:30 PM",l:"Error analysis — mark wrong Qs, identify pattern (subject + topic)",c:"pill-revision"},
+          {t:"2:30 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"3:00 PM",l:"Targeted revision — top 3 error subjects (1 hr each)",c:"pill-revision"},
+          {t:"6:00 PM",l:"Dinner + walk",c:"pill-meal"},
+          {t:"7:30 PM",l:"Light reading — important one-liners, drug of choice lists, tables",c:"pill-revision"},
+          {t:"9:30 PM",l:"Wind down — no screens",c:"pill-break"},
+          {t:"10:30 PM",l:"Sleep (8 hours)",c:"pill-sleep"},
+        ]},
+        {label:"Day 92 (Sun): Controlled rest day",tag:"Light revision only",slots:[
+          {t:"7:30 AM",l:"Relaxed wake-up, good breakfast",c:"pill-meal"},
+          {t:"9:00 AM",l:"Light revision — most important one-liners only (1 hr max)",c:"pill-revision"},
+          {t:"10:00 AM",l:"Walk / light exercise / family time",c:"pill-break"},
+          {t:"1:00 PM",l:"Lunch + long afternoon rest",c:"pill-meal"},
+          {t:"3:00 PM",l:"Review error log from D86–91 (patterns, not re-reading)",c:"pill-revision"},
+          {t:"5:00 PM",l:"Free — music, walk, call a friend",c:"pill-break"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+      ]},
+      {label:"Week 15 (D93–100): Final countdown",days:[
+        {label:"Day 93–98: Final mock surge",tag:"Last push",slots:[
+          {t:"6:30 AM",l:"Wake + breakfast",c:"pill-meal"},
+          {t:"7:30 AM",l:"200-Q Mock Test",c:"pill-mock"},
+          {t:"11:00 AM",l:"Break + lunch",c:"pill-meal"},
+          {t:"12:30 PM",l:"Error analysis",c:"pill-revision"},
+          {t:"2:30 PM",l:"Break (30 min)",c:"pill-break"},
+          {t:"3:00 PM",l:"Rapid subject revision — rotate through worst 3 subjects daily",c:"pill-revision"},
+          {t:"5:30 PM",l:"Break + light exercise (20 min walk)",c:"pill-break"},
+          {t:"6:30 PM",l:"Dinner",c:"pill-meal"},
+          {t:"7:30 PM",l:"Read notes: high-yield facts, drug of choice lists, important numbers",c:"pill-revision"},
+          {t:"9:30 PM",l:"Relax + wind down",c:"pill-break"},
+          {t:"10:30 PM",l:"Sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 99: Light revision only",tag:"Day before exam",slots:[
+          {t:"7:30 AM",l:"Wake naturally — good sleep",c:"pill-sleep"},
+          {t:"8:30 AM",l:"Nutritious breakfast",c:"pill-meal"},
+          {t:"9:30 AM",l:"Light notes review — favourite high-yield pages only (1 hr max)",c:"pill-revision"},
+          {t:"10:30 AM",l:"Walk + fresh air",c:"pill-break"},
+          {t:"12:30 PM",l:"Lunch",c:"pill-meal"},
+          {t:"2:00 PM",l:"Afternoon rest / nap",c:"pill-break"},
+          {t:"4:00 PM",l:"Quick one-liners glance — 30 min max, then close the books",c:"pill-revision"},
+          {t:"5:00 PM",l:"Completely free — movie, music, family",c:"pill-break"},
+          {t:"7:00 PM",l:"Early dinner (familiar, comfortable food)",c:"pill-meal"},
+          {t:"9:30 PM",l:"Early to bed — 8.5 hours of sleep",c:"pill-sleep"},
+        ]},
+        {label:"Day 100: EXAM DAY",tag:"You are ready",slots:[
+          {t:"6:00 AM",l:"Wake up — calm, grounded, confident",c:"pill-break"},
+          {t:"6:30 AM",l:"Light breakfast (familiar food, no experiments)",c:"pill-meal"},
+          {t:"7:00 AM",l:"Glance at drug of choice + one-liners (30 min only, absolutely no stress)",c:"pill-revision"},
+          {t:"7:30 AM",l:"Leave for exam centre early — carry ID, admit card",c:"pill-break"},
+          {t:"9:00 AM",l:"NEET PG EXAM — attempt all 200 Qs methodically, flag and revisit",c:"pill-mock"},
+          {t:"12:30 PM",l:"Done. You did it. Eat well, rest, celebrate.",c:"pill-meal"},
+        ]},
+      ]},
+    ]
+  }
+];
+
+let activePhase = 1;
+let openCards = new Set();
+
+function renderSubjects() {
+  const sg = document.getElementById('subjectGrid');
+  subjects.forEach(s => {
+    const pct = Math.round(s.q/maxQ*100);
+    const card = document.createElement('div');
+    card.className = 'subject-card';
+    card.innerHTML = `<div class="subject-name">${s.name}</div>
+      <div class="subject-q">~${s.q} questions</div>
+      <div class="subject-bar"><div class="subject-fill" style="width:${pct}%;background:${s.color}"></div></div>`;
+    sg.appendChild(card);
+  });
+}
+
+function renderTabs() {
+  const tabs = document.getElementById('phaseTabs');
+  tabs.innerHTML = '';
+  phases.forEach(p => {
+    const btn = document.createElement('button');
+    btn.className = 'phase-tab' + (p.id === activePhase ? ` active-${p.id}` : '');
+    btn.textContent = `${p.label}: ${p.sub}`;
+    btn.onclick = () => { activePhase = p.id; openCards.clear(); renderContent(); renderTabs(); };
+    tabs.appendChild(btn);
+  });
+}
+
+function renderContent() {
+  const phase = phases.find(p => p.id === activePhase);
+  const pc = document.getElementById('phaseContent');
+
+  let html = `<div class="phase-header">
+    <div class="phase-header-title">${phase.label}: ${phase.sub} &mdash; ${phase.days}</div>
+    <div class="phase-header-sub">${phase.desc}</div>
+    <div class="badge-row">${phase.badges.map(b=>`<span class="badge ${b.c}">${b.t}</span>`).join('')}</div>
+  </div>
+  <div class="tip-box"><strong>Strategy:</strong> ${phase.tip}</div>
+  <div class="phase-${phase.id}">`;
+
+  phase.weeks.forEach((week, wi) => {
+    html += `<div class="week-label">${week.label}</div><div class="day-grid">`;
+    week.days.forEach((day, di) => {
+      const key = `${wi}-${di}`;
+      const isOpen = openCards.has(key);
+      html += `<div class="day-card${isOpen?' open':''}" data-key="${key}">
+        <div class="day-header" onclick="toggleCard('${key}')">
+          <span class="day-label">${day.label}</span>
+          <div class="day-right">
+            <span class="day-tag">${day.tag}</span>
+            <span class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="slot-list">`;
+      day.slots.forEach(s => {
+        html += `<div class="slot">
+          <span class="slot-time">${s.t}</span>
+          <span class="slot-pill ${s.c}">${s.l}</span>
+        </div>`;
+      });
+      html += `</div></div></div>`;
+    });
+    html += `</div>`;
+  });
+
+  html += `</div>`;
+  pc.innerHTML = html;
+}
+
+window.toggleCard = function(key) {
+  if (openCards.has(key)) {
+    openCards.delete(key);
+  } else {
+    openCards.add(key);
+  }
+  renderContent();
+};
+
+renderSubjects();
+renderTabs();
+renderContent();
+</script>
+</body>
+</html>
